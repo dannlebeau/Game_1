@@ -5,9 +5,13 @@ let puntoActual = null;
 let puntaje = 0;
 
 async function cargarPuntos() {
-  const res = await fetch('/api/puntos');
-  puntos = await res.json();
-  siguienteFoto();
+  try {
+    const res = await fetch('/api/puntos');
+    puntos = await res.json();
+    siguienteFoto();
+  } catch (err) {
+    console.error('Error al cargar los puntos:', err);
+  }
 }
 
 function siguienteFoto() {
@@ -23,14 +27,12 @@ function siguienteFoto() {
 
   const nuevaFoto = `img/${puntoActual.foto}`;
   const photo = document.getElementById('photo');
-
-  // Reinicia animación
-  photo.classList.remove('fade-in');
-  void photo.offsetWidth;
   photo.src = nuevaFoto;
-  photo.classList.add('fade-in');
 
-  if (marcadorUsuario) mapa.removeLayer(marcadorUsuario);
+  if (marcadorUsuario) {
+    mapa.removeLayer(marcadorUsuario);
+    marcadorUsuario = null;
+  }
 }
 
 function iniciarMapa() {
@@ -46,7 +48,10 @@ function iniciarMapa() {
 }
 
 function calcularDistancia() {
-  if (!marcadorUsuario || !puntoActual) return;
+  if (!marcadorUsuario || !puntoActual) {
+    alert("Debes seleccionar un punto en el mapa.");
+    return;
+  }
 
   const latlng1 = marcadorUsuario.getLatLng();
   const latlng2 = L.latLng(puntoActual.latitud, puntoActual.longitud);
@@ -61,40 +66,32 @@ function calcularDistancia() {
   puntaje += puntosGanados;
 
   const resultEl = document.getElementById('result');
-  resultEl.innerText = `¡Estuviste a ${distancia.toFixed(2)} km de distancia! Ganaste ${puntosGanados} puntos.`;
+  resultEl.innerText = `¡Estuviste a ${distancia.toFixed(2)} km! Ganaste ${puntosGanados} puntos.`;
 
-  const scoreEl = document.getElementById('score');
-  scoreEl.innerText = `Puntaje: ${puntaje}`;
-  scoreEl.classList.add('animado');
-  setTimeout(() => scoreEl.classList.remove('animado'), 300);
+  // ACTUALIZACIÓN: Mostrar puntaje dentro de la barra de progreso
+  const barra = document.getElementById('score-bar');
+  barra.innerText = `${puntaje} pts`;
+  barra.style.width = `${Math.min((puntaje / 1000) * 100, 100)}%`; // Escala hasta 1000 puntos como máximo (ajustable)
 
-  actualizarBarraPuntaje(puntaje);
-
-  // Espera 3 segundos y pasa a la siguiente imagen
+  // Avanza después de 3 segundos
   setTimeout(() => {
     resultEl.innerText = "";
     siguienteFoto();
   }, 3000);
 }
 
-// Esperar a que todo esté cargado
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   iniciarMapa();
   cargarPuntos();
+
   document.getElementById('check').addEventListener('click', calcularDistancia);
 
-  // Botón toggle para la barra lateral
   document.querySelectorAll('#toggleSidebar').forEach(button => {
     button.addEventListener('click', () => {
       const sidebar = document.getElementById('sidebar');
-      const main = document.getElementById('main-content');
       sidebar.classList.toggle('active');
-
-      // Redimensionar el mapa después de mostrar la barra
       setTimeout(() => {
-        if (window.mapa) {
-          mapa.invalidateSize();
-        }
+        if (mapa) mapa.invalidateSize();
       }, 310);
     });
   });
