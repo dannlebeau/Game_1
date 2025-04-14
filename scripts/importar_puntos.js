@@ -7,7 +7,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'Game_1',
   password: '3022',
-  port: 5432, // o el puerto que uses
+  port: 3000, // o el puerto que uses
 });
 
 const puntos = JSON.parse(fs.readFileSync('puntos.json', 'utf-8'));
