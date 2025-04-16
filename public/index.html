@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!--Metadatos-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Dann LeBeau">
-  <meta name="description" content="¿Donde estuvo? es un juego de adivinanza de lugares históricos. Los jugadores deben adivinar la ubicación de una foto histórica en un mapa.">
-  <meta name="keywords" content="juego, geografia, historia, mapas">
-<title>¿Dónde Estuvo?</title>
-<!--The own the this page web is Dann LaBeau-->
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Metadatos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Dann LeBeau" />
+  <meta name="description" content="¿Donde estuvo? es un juego de adivinanza de lugares históricos. Los jugadores deben adivinar la ubicación de una foto histórica en un mapa." />
+  <meta name="keywords" content="juego, geografia, historia, mapas" />
+  <title>¿Dónde Estuvo?</title>
 
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 </head>
 <body>
 
-<!-- Sidebar -->
-<!-- Sidebar (inicia visible) -->
-<div id="sidebar" class="sidebar active">
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar active">
     <button id="toggleSidebar" class="toggle-btn">☰</button>
     <h3>📍 ¿Dónde estuvo?</h3>
+
     <div id="rules" style="margin-top: 1rem;">
       <h4>📏 Sistema de Precisión:</h4>
       <ul>
@@ -31,20 +32,19 @@
         <li>🔸 150–300 km → <strong>25 puntos</strong></li>
         <li>❌ +300 km → <strong>0 puntos</strong></li>
       </ul>
-  
+
       <h4>🎯 Bonus por Racha:</h4>
       <ul>
         <li>✔️ 3 aciertos consecutivos con menos de 50 km → <strong>+50 puntos</strong></li>
       </ul>
-  
+
       <h4>📸 Modo Historia:</h4>
       <ul>
         <li>🧩 Acierta 3 lugares seguidos con <strong>menos de 100 km total</strong> → 🎁 recompensa</li>
       </ul>
 
-
       <div id="score-container" style="margin-bottom: 1rem;">
-        <h3>Puntaje Total<span id="score">0</span></h3>
+        <h3>Puntaje Total <span id="score"></span></h3>
         <div class="progress" style="height: 30px;">
           <div id="score-bar" class="progress-bar bg-success" style="width: 0%; font-weight: bold;">
             0 pts
@@ -54,22 +54,19 @@
     </div>
   </div>
 
-
-<!-- Sidebar (termina visible) -->
-
-
+  <!-- Contenedor del juego -->
   <div id="game">
     <div id="photo-container">
-      <img id="photo" src="" alt="Foto histórica">
+      <img id="photo" src="" alt="Foto histórica" />
     </div>
     <div id="map"></div>
     <button id="check" type="button">Adivinar</button>
     <div id="result"></div>
   </div>
-  
 
-
+  <!-- Scripts en orden correcto -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

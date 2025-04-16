@@ -3,6 +3,7 @@ let marcadorUsuario;
 let puntos = [];
 let puntoActual = null;
 let puntaje = 0;
+let lineaDistancia = null;
 
 async function cargarPuntos() {
   try {
@@ -33,6 +34,11 @@ function siguienteFoto() {
     mapa.removeLayer(marcadorUsuario);
     marcadorUsuario = null;
   }
+
+  if (lineaDistancia) {
+    mapa.removeLayer(lineaDistancia);
+    lineaDistancia = null;
+  }
 }
 
 function iniciarMapa() {
@@ -41,6 +47,21 @@ function iniciarMapa() {
     attribution: '© OpenStreetMap'
   }).addTo(mapa);
 
+  // Barra de búsqueda con Leaflet Control Geocoder
+  L.Control.geocoder({
+    defaultMarkGeocode: false
+  })
+    .on('markgeocode', function(e) {
+      const latlng = e.geocode.center;
+      mapa.setView(latlng, 10);
+
+      // Simula clic de usuario al buscar
+      if (marcadorUsuario) mapa.removeLayer(marcadorUsuario);
+      marcadorUsuario = L.marker(latlng, { draggable: true }).addTo(mapa);
+    })
+    .addTo(mapa);
+
+  // Permitir clic manual
   mapa.on('click', function(e) {
     if (marcadorUsuario) mapa.removeLayer(marcadorUsuario);
     marcadorUsuario = L.marker(e.latlng, { draggable: true }).addTo(mapa);
@@ -68,14 +89,26 @@ function calcularDistancia() {
   const resultEl = document.getElementById('result');
   resultEl.innerText = `¡Estuviste a ${distancia.toFixed(2)} km! Ganaste ${puntosGanados} puntos.`;
 
-  // ACTUALIZACIÓN: Mostrar puntaje dentro de la barra de progreso
+  // Actualiza barra de puntaje
   const barra = document.getElementById('score-bar');
   barra.innerText = `${puntaje} pts`;
-  barra.style.width = `${Math.min((puntaje / 1000) * 100, 100)}%`; // Escala hasta 1000 puntos como máximo (ajustable)
+  barra.style.width = `${Math.min((puntaje / 1000) * 100, 100)}%`;
 
-  // Avanza después de 3 segundos
+  // Dibuja línea entre el punto marcado y el real
+  if (lineaDistancia) mapa.removeLayer(lineaDistancia);
+  lineaDistancia = L.polyline([latlng1, latlng2], {
+    color: 'red',
+    dashArray: '6,10',
+    weight: 2
+  }).addTo(mapa);
+
+  // Avanza en 3 segundos
   setTimeout(() => {
     resultEl.innerText = "";
+    if (lineaDistancia) {
+      mapa.removeLayer(lineaDistancia);
+      lineaDistancia = null;
+    }
     siguienteFoto();
   }, 3000);
 }
