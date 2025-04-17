@@ -19,8 +19,8 @@ async function insertarPuntos() {
     try {
       await pool.query(
         `INSERT INTO puntos (id, usuario, foto, geom)
-         VALUES ($1, $2, $3, ST_SetSRID(ST_MakePoint($4, $5), 4326))
-         ON CONFLICT (id) DO NOTHING`,
+        VALUES ($1, $2, $3, ST_SetSRID(ST_MakePoint($4, $5), 4326))
+        ON CONFLICT (id) DO NOTHING`,
         [id, usuario, foto, longitud, latitud]
       );
       console.log(`✅ Punto insertado: ${id}`);

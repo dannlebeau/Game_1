@@ -1,135 +1,192 @@
 [
-    {
-      "id": "cm4qg9g9s074051hf1qmforrg",
-      "usuario": "Felipe Bengoa",
-      "latitud": -33.40802,
-      "longitud": -70.54823,
-      "foto": "1.jpg"
-    },
-    {
-      "id": "cm4qgk6ck0bva51hfc2djs7wj",
-      "usuario": "Observatorio Astronómico Nacional",
-      "latitud": -33.39838002777684,
-      "longitud": -70.5371806025505,
-      "foto": "2.jpg"
-    },
-    {
-      "id": "cm4qg9g9y075051hfa7mp98wu",
-      "usuario": "Archivo Enterreno",
-      "latitud": -33.0381,
-      "longitud": -71.63837,
-      "foto": "3.jpg"
-    },
-    {
-      "id": "cm4qgkssy0c5q51hf7olmqdbb",
-      "usuario": "Familia Clericus",
-      "latitud": -33.45617737784716,
-      "longitud": -70.65576776862144,
-      "foto": "5.jpg"
-    },
-    {
-      "id": "cm4qgyql70huo51hfm5mb9bta",
-      "usuario": "Archivo enterreno",
-      "latitud": -33.45663501011978,
-      "longitud": -70.65633804354373,
-      "foto": "6.jpg"
-    },
-    {
-      "id": "cm4qgix9o0b9p51hf39o5v704",
-      "usuario": "Extensión CChC",
-      "latitud": -33.04223303907382,
-      "longitud": -71.62754014134407,
-      "foto": "7.jpg"
-    },
-    {
-      "id": "cm4qge5nj09h151hf5yx3mg9y",
-      "usuario": "Alejandra Puga",
-      "latitud": -33.42083950314491,
-      "longitud": -70.6235933303833,
-      "foto": "8.jpg"
-    },
-    {
-      "id": "cm4qgbcla083j51hf29zktl6f",
-      "usuario": "Archivo Enterreno",
-      "latitud": -33.4386209561493,
-      "longitud": -70.63821941614151,
-      "foto": "9.jpg"
-    },
-    {
-      "id": "cm4qgh2120aq851hfr4llfmay",
-      "usuario": "Ana Péndola",
-      "latitud": -29.9624730449188,
-      "longitud": -71.33718699216843,
-      "foto": "10.jpg"
-    },
-    {
-      "id": "cm4qgbcl5082h51hferkwt6x2",
-      "usuario": "Archivo Revista LIFE",
-      "latitud": -32.7899262474446,
-      "longitud": -71.1915497481823,
-      "foto": "11.jpg"
-    },
-    {
-      "id": "cm4qgfeww0a1l51hfy4o6hke8",
-      "usuario": "Armando Concha",
-      "latitud": -37.799382775228,
-      "longitud": -72.7090510725975,
-      "foto": "12.jpg"
-    },
-    {
-      "id": "cm4qgoal90dod51hfc75hthyd",
-      "usuario": "Archivo Sewell",
-      "latitud": -34.08568943014373,
-      "longitud": -70.37818384367847,
-      "foto": "13.jpg"
-    },
-    {
-      "id": "cm4qgeh1r09ml51hf9l96mi9l",
-      "usuario": "Familia Muñoz de la Fuente",
-      "latitud": -33.45900025296709,
-      "longitud": -70.67114219069481,
-      "foto": "14.jpg"
-    },
-    {
-      "id": "cm4qgbcli085z51hf0er1cx1n",
-      "usuario": "Archivo Enterreno",
-      "latitud": -36.826479698451,
-      "longitud": -73.0504077672958,
-      "foto": "15.jpg"
-    },
-    {
-      "id": "cm4qgyql90hv751hfy8p62ver",
-      "usuario": "Archivo Enterreno",
-      "latitud": -33.41823584129708,
-      "longitud": -70.65021407315709,
-      "foto": "16.jpg"
-    },
-    {
-      "id": "cm6pt42u3001pxi23eqkng052",
-      "usuario": "Archivo Enterreno",
-      "latitud": -39.81160630921894,
-      "longitud": -73.24894872408451,
-      "foto": "17.jpg"
-    },
-    {
-      "id": "cm4qgp8gs0e5v51hfist6t7dm",
-      "usuario": "Archivo Codelco",
-      "latitud": -34.08759674262659,
-      "longitud": -70.3470760051191,
-      "foto": "18.jpg"
-    },
-    {
-      "id": "cm5r7v8is0007k4qoff675n8m",
-      "usuario": "Archivo Enterreno",
-      "latitud": -40.33873349245221,
-      "longitud": -72.96408147916857,
-      "foto": "19.jpg"
-    },
-    {
-      "id": "cm4qh1np20j5051hf384rum6h",
-      "usuario": "Archivo Enterreno",
-      "latitud": -40.29563987632189,
-      "longitud": -73.06433840705503,
-      "foto": "20.jpg"
-    }
+  {
+    "id": "cm4qg9g9s074051hf1qmforrg",
+    "usuario": "Felipe Bengoa",
+    "latitud": -33.40802,
+    "longitud": -70.54823,
+    "foto": "1.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgk6ck0bva51hfc2djs7wj",
+    "usuario": "Observatorio Astronómico Nacional",
+    "latitud": -33.39838002777684,
+    "longitud": -70.5371806025505,
+    "foto": "2.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qg9g9y075051hfa7mp98wu",
+    "usuario": "Archivo Enterreno",
+    "latitud": -33.0381,
+    "longitud": -71.63837,
+    "foto": "3.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgkssy0c5q51hf7olmqdbb",
+    "usuario": "Familia Clericus",
+    "latitud": -33.45617737784716,
+    "longitud": -70.65576776862144,
+    "foto": "5.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgyql70huo51hfm5mb9bta",
+    "usuario": "Archivo enterreno",
+    "latitud": -33.45663501011978,
+    "longitud": -70.65633804354373,
+    "foto": "6.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgix9o0b9p51hf39o5v704",
+    "usuario": "Extensión CChC",
+    "latitud": -33.04223303907382,
+    "longitud": -71.62754014134407,
+    "foto": "7.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qge5nj09h151hf5yx3mg9y",
+    "usuario": "Alejandra Puga",
+    "latitud": -33.42083950314491,
+    "longitud": -70.6235933303833,
+    "foto": "8.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgbcla083j51hf29zktl6f",
+    "usuario": "Archivo Enterreno",
+    "latitud": -33.4386209561493,
+    "longitud": -70.63821941614151,
+    "foto": "9.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgh2120aq851hfr4llfmay",
+    "usuario": "Ana Péndola",
+    "latitud": -29.9624730449188,
+    "longitud": -71.33718699216843,
+    "foto": "10.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgbcl5082h51hferkwt6x2",
+    "usuario": "Archivo Revista LIFE",
+    "latitud": -32.7899262474446,
+    "longitud": -71.1915497481823,
+    "foto": "11.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgfeww0a1l51hfy4o6hke8",
+    "usuario": "Armando Concha",
+    "latitud": -37.799382775228,
+    "longitud": -72.7090510725975,
+    "foto": "12.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgoal90dod51hfc75hthyd",
+    "usuario": "Archivo Sewell",
+    "latitud": -34.08568943014373,
+    "longitud": -70.37818384367847,
+    "foto": "13.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgeh1r09ml51hf9l96mi9l",
+    "usuario": "Familia Muñoz de la Fuente",
+    "latitud": -33.45900025296709,
+    "longitud": -70.67114219069481,
+    "foto": "14.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgbcli085z51hf0er1cx1n",
+    "usuario": "Archivo Enterreno",
+    "latitud": -36.826479698451,
+    "longitud": -73.0504077672958,
+    "foto": "15.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgyql90hv751hfy8p62ver",
+    "usuario": "Archivo Enterreno",
+    "latitud": -33.41823584129708,
+    "longitud": -70.65021407315709,
+    "foto": "16.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm6pt42u3001pxi23eqkng052",
+    "usuario": "Archivo Enterreno",
+    "latitud": -39.81160630921894,
+    "longitud": -73.24894872408451,
+    "foto": "17.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qgp8gs0e5v51hfist6t7dm",
+    "usuario": "Archivo Codelco",
+    "latitud": -34.08759674262659,
+    "longitud": -70.3470760051191,
+    "foto": "18.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm5r7v8is0007k4qoff675n8m",
+    "usuario": "Archivo Enterreno",
+    "latitud": -40.33873349245221,
+    "longitud": -72.96408147916857,
+    "foto": "19.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  },
+  {
+    "id": "cm4qh1np20j5051hf384rum6h",
+    "usuario": "Archivo Enterreno",
+    "latitud": -40.29563987632189,
+    "longitud": -73.06433840705503,
+    "foto": "20.jpg",
+    "region": null,
+    "comuna": null,
+    "calle": null
+  }
 ]

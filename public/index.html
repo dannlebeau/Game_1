@@ -51,6 +51,20 @@
           </div>
         </div>
       </div>
+
+      <h4>🧠 Pistas:</h4>
+      <p>¿Necesitas ayuda? Usa una pista, ¡pero perderás puntos!</p>
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-primary btn-sm" id="hint-region">📍 Pista 1: Región <small>(-10 pts)</small></button>
+        <button class="btn btn-outline-warning btn-sm" id="hint-comuna">🏙️ Pista 2: Comuna <small>(-20 pts)</small></button>
+        <button class="btn btn-outline-danger btn-sm" id="hint-calle">🚧 Pista 3: Calle <small>(-30 pts)</small></button>
+      </div>
+      <div id="hints-used" class="mt-3">
+        <strong>Pistas usadas:</strong>
+        <ul id="hint-list" style="padding-left: 1rem;">
+          <!-- Las pistas usadas se mostrarán aquí -->
+        </ul>
+      </div>
     </div>
   </div>
 
