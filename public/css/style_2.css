@@ -1,0 +1,189 @@
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Barra superior */
+.navbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* Tres columnas: logo, reglas, puntaje */
+    grid-gap: 2px; /* Espacio entre las columnas */
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Logo */
+#logo {
+    width: 100%;
+    max-width: 300px; /* Ajusta el tamaño del logo */
+    height: auto;
+    transition: width 0.3s ease-in-out;
+    margin-right: 0; /* Ajustado el margen del logo para evitar espaciado excesivo */
+    grid-column: 1;
+}
+
+/* Reglas de juego */
+#rules {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    grid-column: 2;
+}
+
+#rules ul {
+    padding-left: 1rem;
+    list-style-type: disc;
+}
+
+/* Puntaje */
+#score-container {
+    grid-column: 3;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    border-right: 100px solid #f8f9fa; /* Espacio a la derecha del puntaje */
+}
+
+/* Ajustes en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    /* Barra superior */
+    .navbar {
+        grid-template-columns: 1fr; /* La barra se vuelve de una sola columna */
+        grid-gap: 10px; /* Reducir espacio entre los elementos */
+    }
+
+    #logo {
+        max-width: 200px; /* Ajustar el tamaño del logo en pantallas pequeñas */
+        margin: 0 auto; /* Centrado en pantallas pequeñas */
+    }
+
+    #rules, #score-container {
+        text-align: center;
+    }
+
+    #rules ul {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    /* Columna de juego */
+    #game {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0; /* Elimina márgenes adicionales */
+    }
+
+    #left-column, #right-column {
+        width: 100%; /* Las columnas ocupan todo el ancho disponible */
+        flex: none; /* No es necesario que se distribuyan */
+    }
+
+    #map {
+        height: 300px; /* El mapa ocupa menos altura en pantallas pequeñas */
+    }
+}
+
+/* Contenedor principal del juego */
+#game {
+    display: flex;
+    gap: 2rem;
+    padding: 20px;
+    margin: 0 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Columna izquierda: Imagen y pistas */
+#left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+/* Imagen */
+#photo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#photo {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+}
+
+/* Pistas */
+#clues {
+    background-color: #f1f1f1;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Columna derecha: Mapa y botón de adivinar */
+#right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 2;
+}
+
+/* Mapa */
+#map {
+    flex: 1;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    height: 400px;
+    width: 100%;
+}
+
+/* Botón adivinar */
+#check {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+#check:hover {
+    background-color: #0056b3;
+}
+
+#check:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.6);
+}
+
+/* Resultado */
+#result {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
