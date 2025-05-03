@@ -158,8 +158,8 @@ body, html {
     width: 100%;
 }
 
-/* Botón adivinar */
-#check {
+/* Botón adivinar y siguiente*/
+#check, #BtnNext {
     margin-top: 1rem;
     padding: 0.6rem 1.2rem;
     font-size: 1rem;

@@ -9,6 +9,7 @@ let puntaje = 0;
 let lineaDistancia = null;
 let racha = 0;
 let acumuladoKm = 0;
+let temporizador = null;
 
 // ----------------------------------------------------
 // 2. Cargar Puntos desde la API
@@ -27,6 +28,7 @@ async function cargarPuntos() {
 // 3. Mostrar la siguiente foto
 // ----------------------------------------------------
 function siguienteFoto() {
+  console.log(puntos);  // Mostrar los puntos restantes en la consola
   if (puntos.length === 0) {
     alert("¡Juego terminado! Puntaje final: " + puntaje);  // Al terminar el juego
     reiniciarJuego();
@@ -48,17 +50,59 @@ function siguienteFoto() {
     mapa.removeLayer(lineaDistancia);  // Eliminar línea de distancia
     lineaDistancia = null;
   }
-}
+    // Reiniciar temporizador automático si existe
+    if (temporizador) {
+      clearTimeout(temporizador);
+    }
+  
+    // Iniciar temporizador automático para pasar en 10 segundos
+    temporizador = setTimeout(() => {
+      siguienteFoto();
+    }, 10000);
+  }
 
 // ----------------------------------------------------
 // 4. Inicializar Mapa
 // ----------------------------------------------------
 function iniciarMapa() {
-  mapa = L.map('map').setView([-33.45, -70.66], 6);  // Ubicación inicial de Santiago
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-  }).addTo(mapa);
+ //mapa = L.map('map').setView([-33.45, -70.66], 6);  // Ubicación inicial de Santiago
+//  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//    attribution: '© OpenStreetMap'
+//  }).addTo(mapa);
 
+//Mapa base
+// A. Capas base
+const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+});
+
+const esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/' +
+  'World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles © Esri'
+});
+
+const stadiaAlidade = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+  attribution: '© Stadia Maps, OpenMapTiles, OpenStreetMap'
+});
+
+// B. Inicialización del mapa
+mapa = L.map('map', {
+  center: [-33.45, -70.66],  // Santiago por defecto
+  zoom: 6,
+  layers: [openStreetMap] // Por defecto OSM
+});
+
+// C. Control de capas base
+const mapasBase = {
+  "OpenStreetMap": openStreetMap,
+  "Esri World Imagery": esriWorldImagery,
+  "Stadia Alidade Smooth": stadiaAlidade
+};
+
+L.control.layers(mapasBase).addTo(mapa); // Control de capas base
+
+
+//D.Geolocalizacion
   L.Control.geocoder({
     defaultMarkGeocode: false
   })
@@ -73,6 +117,7 @@ function iniciarMapa() {
     ponerMarcador(e.latlng);  // Poner marcador en el lugar donde el usuario haga clic
   });
 }
+
 
 // ----------------------------------------------------
 // 5. Poner Marcador en el Mapa
@@ -139,7 +184,7 @@ function calcularDistancia() {
       lineaDistancia = null;
     }
     siguienteFoto();  // Mostrar la siguiente foto
-  }, 3000);
+  }, 10000); // Esperar 10 segundos antes de mostrar la siguiente foto
 }
 
 // ----------------------------------------------------
@@ -170,6 +215,14 @@ document.addEventListener('DOMContentLoaded', () => {
       mapa.invalidateSize();  // Ajustar tamaño del mapa al cambiar la barra lateral
     }, 310);
   });
+
+  // ✅ Botón siguiente foto
+  document.getElementById('BtnNxt').addEventListener('click', () => {
+    siguienteFoto(); //llamada manual
+  });
+
+    // Cargar la primera imagen al inicio
+    //siguienteFoto();
 });
 
 // ----------------------------------------------------
@@ -261,3 +314,4 @@ function siguienteFoto() {
     lineaDistancia = null;
   }
 }
+
